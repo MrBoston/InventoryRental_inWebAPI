@@ -1,0 +1,44 @@
+﻿@model InventoryRental.Models.RentalItem
+
+@{
+    ViewBag.Title = "Delete Rented Tool";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete Rented Tool</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Rental Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToolId)
+        </dt>
+
+        <dd>
+            @Model.Tools.FirstOrDefault(m => m.Value.AsInt() == Model.ToolId).Text
+            @*@Html.DisplayFor(model => model.ToolId)*@
+            @*@Html.DropDownListFor(model => model.ToolId, Model.Tools, "- Please select a tool -", new { @class = "form-control" })*@
+
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Edit", new { Id = Model.RentalId })
+        </div>
+    }
+</div>

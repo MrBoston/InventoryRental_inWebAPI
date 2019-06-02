@@ -1,0 +1,60 @@
+﻿@model InventoryRental.ViewModels.CustomerRentalDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Rentals</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rental.RentalId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rental.RentalId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rental.CheckedOutDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rental.CheckedOutDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rental.CheckedInDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rental.CheckedInDate)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <h4>Tools Borrowed</h4>
+    <ul>
+        @foreach(var tools in Model.RentedTools)
+        {
+            <li>@tools.Name</li>
+        }
+    </ul>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Rental.RentalId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
