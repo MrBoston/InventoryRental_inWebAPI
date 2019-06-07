@@ -16,10 +16,10 @@
             @Html.DisplayNameFor(model => model.RentalId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CheckedOutDate)
+            @Html.DisplayNameFor(model => model.DateRented)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FName)
+            @Html.DisplayNameFor(model => model.CustomerName)
         </th>
         <th></th>
     </tr>
@@ -30,10 +30,10 @@
             @Html.DisplayFor(modelItem => item.RentalId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CheckedOutDate)
+            @Html.DisplayFor(modelItem => item.DateRented)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FName)
+            @Html.DisplayFor(modelItem => item.CustomerName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RentalId }) |

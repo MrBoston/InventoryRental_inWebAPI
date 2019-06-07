@@ -20,27 +20,27 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FName)
+            @Html.DisplayNameFor(model => model.CustomerName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FName)
+            @Html.DisplayFor(model => model.CustomerName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Rental.CheckedOutDate)
+            @Html.DisplayNameFor(model => model.Rental.DateRented)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Rental.CheckedOutDate)
+            @Html.DisplayFor(model => model.Rental.DateRented)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Rental.CheckedInDate)
+            @Html.DisplayNameFor(model => model.Rental.DateReturned)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Rental.CheckedInDate)
+            @Html.DisplayFor(model => model.Rental.DateReturned)
         </dd>
 
     </dl>
@@ -50,7 +50,7 @@
     <ul>
         @foreach(var tools in Model.RentedTools)
         {
-            <li>@tools.Name</li>
+            <li>@tools.ToolName</li>
         }
     </ul>
 </div>

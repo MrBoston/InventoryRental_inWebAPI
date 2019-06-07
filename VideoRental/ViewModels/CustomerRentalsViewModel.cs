@@ -8,7 +8,7 @@ namespace InventoryRental.ViewModels
     public class CustomerRentalsViewModel
     {
         public int RentalId { get; set; }
-        public DateTime CheckedOutDate { get; set; }
-        public string FName { get; set; }
+        public DateTime DateRented { get; set; }
+        public string CustomerName { get; set; }
     }
 }

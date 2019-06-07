@@ -33,18 +33,18 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CheckedOutDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DateRented, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CheckedOutDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CheckedOutDate, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.DateRented, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateRented, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CheckedInDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DateReturned, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CheckedInDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CheckedInDate, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.DateReturned, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateReturned, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -60,7 +60,7 @@
                 @foreach (var item in Model.RentedTools)
                 {
                     <tr>
-                        <td>@item.Name</td>     
+                        <td>@item.ToolName</td>     
                         <td>
                             @Html.ActionLink("Edit", "EditRentedTool", new { id = item.RentalItemId }) |
                             @Html.ActionLink("Details", "DetailsRentedTool", new { id = item.RentalItemId }) |

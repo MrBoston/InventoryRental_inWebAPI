@@ -15,9 +15,9 @@ namespace InventoryRental.Controllers
 
         public static List<Customer> customerList = new List<Customer>
         {
-            new Customer{CustomerId = 1, FName = "John Smith", Phone="3390 0675"},
-            new Customer{CustomerId = 2, FName = "Mary Parks", Phone="3855 1515"},
-            new Customer{CustomerId = 3, FName = "Robert Boyd", Phone="3290 9090"},
+            new Customer{CustomerId = 1, CustomerName = "John Smith", Phone="3390 0675"},
+            new Customer{CustomerId = 2, CustomerName = "Mary Parks", Phone="3855 1515"},
+            new Customer{CustomerId = 3, CustomerName = "Robert Boyd", Phone="3290 9090"},
 
         };
 

@@ -24,6 +24,12 @@ namespace InventoryRental.Controllers
 
         public ActionResult Index()
         {
+            //var tools = from m in toolList
+            //             orderby m.ToolId
+            //             select m;
+
+            //return View(tools);
+            //return View(db.Tools.ToList());
             
             HttpResponseMessage response = WebClient.ApiClient.GetAsync("Tools").Result;
             // we are using IEnumerable because we only want to enumerate the collection and we are not going to add or delete elements
@@ -33,6 +39,10 @@ namespace InventoryRental.Controllers
 
         public ActionResult Edit(int Id)
         {
+            //var tool = toolList.Single(m => m.ToolId == Id);
+            //return View(tool);
+            //var tool = db.Tools.Single(m => m.ToolId == Id);
+            //return View(tool);
             HttpResponseMessage response = WebClient.ApiClient.GetAsync($"Tools/{Id}").Result;
             var tool = response.Content.ReadAsAsync<Tool>().Result;
             return View(tool);

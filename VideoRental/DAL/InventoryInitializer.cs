@@ -21,9 +21,9 @@ namespace InventoryRental.DAL
 
             var customers = new List<Customer>
             {
-                new Customer{CustomerId = 1, FName = "John Smith", Phone="3390 0675"},
-                new Customer{CustomerId = 2, FName = "Mary Parks", Phone="3855 1515"},
-                new Customer{CustomerId = 3, FName = "Robert Boyd", Phone="3290 9090"},
+                new Customer{CustomerId = 1, CustomerName = "John Smith", Phone="3390 0675"},
+                new Customer{CustomerId = 2, CustomerName = "Mary Parks", Phone="3855 1515"},
+                new Customer{CustomerId = 3, CustomerName = "Robert Boyd", Phone="3290 9090"},
 
             };
 
@@ -32,9 +32,9 @@ namespace InventoryRental.DAL
 
             var rentals = new List<Rental>
             {
-                new Rental{RentalId = 1, CustomerId = 1, CheckedOutDate = DateTime.Parse("01/01/2017"), CheckedInDate = null},
-                new Rental{RentalId = 2, CustomerId = 2, CheckedOutDate = DateTime.Parse("01/01/2018"), CheckedInDate = null},
-                new Rental{RentalId = 3, CustomerId = 3, CheckedOutDate = DateTime.Parse("01/05/2017"), CheckedInDate = null},
+                new Rental{RentalId = 1, CustomerId = 1, DateRented = DateTime.Parse("01/01/2017"), DateReturned = null},
+                new Rental{RentalId = 2, CustomerId = 2, DateRented = DateTime.Parse("01/01/2018"), DateReturned = null},
+                new Rental{RentalId = 3, CustomerId = 3, DateRented = DateTime.Parse("01/05/2017"), DateReturned = null},
             };
 
             rentals.ForEach(r => context.Rentals.Add(r));

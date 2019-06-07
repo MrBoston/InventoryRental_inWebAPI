@@ -27,9 +27,9 @@ namespace InventoryRental.Controllers
                 r => new CustomerRentalsViewModel
                 {
                     RentalId = r.RentalId,
-                    CheckedOutDate = r.CheckedOutDate,
-                    FName = customers.Where(c => c.CustomerId == r.CustomerId).Select(u => u.FName).FirstOrDefault()
-                }).OrderByDescending(o => o.CheckedOutDate).ToList();
+                    DateRented = r.DateRented,
+                    CustomerName = customers.Where(c => c.CustomerId == r.CustomerId).Select(u => u.CustomerName).FirstOrDefault()
+                }).OrderByDescending(o => o.DateRented).ToList();
 
             return View(customerRentalsViewModel);
         }
@@ -51,7 +51,7 @@ namespace InventoryRental.Controllers
                         {
                             RentalItemId = m.RentalItemId,
                             RentalId = m.RentalId,
-                            Name = dbTools.Where(c => c.ToolId == m.ToolId).Select(f => f.Name).FirstOrDefault()
+                            ToolName = dbTools.Where(c => c.ToolId == m.ToolId).Select(f => f.Name).FirstOrDefault()
                         }).ToList();
 
                 rental.Customers = customers;
@@ -92,12 +92,12 @@ namespace InventoryRental.Controllers
             var customerRentalDetails = new CustomerRentalDetailsViewModel
                 {
                     Rental = rental,
-                    FName = customers.Select(cu => cu.FName).FirstOrDefault(),
+                    CustomerName = customers.Select(cu => cu.CustomerName).FirstOrDefault(),
                     RentedTools = rental.RentalItems.Select(
                         ri => new CustomerToolsViewModel
                         {
                             RentalId = ri.RentalId,
-                            Name = dbTools.Where(c2 => c2.ToolId == ri.ToolId).Select(m => m.Name).FirstOrDefault()
+                            ToolName = dbTools.Where(c2 => c2.ToolId == ri.ToolId).Select(m => m.Name).FirstOrDefault()
                         }).ToList()
                 };
 
@@ -110,7 +110,7 @@ namespace InventoryRental.Controllers
             HttpResponseMessage response = WebClient.ApiClient.GetAsync("GetRentalMaxId").Result;
             // Setting the primary key value to a negative value will make SQL server to find the next available PKID when you save it.
             rental.RentalId = -999;
-            rental.CheckedOutDate = DateTime.Now;
+            rental.DateRented = DateTime.Now;
             var customers = GetCustomers();
             rental.Customers = customers;
             rental.RentedTools = new List<CustomerToolsViewModel>();
@@ -258,11 +258,11 @@ namespace InventoryRental.Controllers
             HttpResponseMessage response = WebClient.ApiClient.GetAsync("Customers").Result;
             IList<Customer> dbCustomers = response.Content.ReadAsAsync<IList<Customer>>().Result;
             List<SelectListItem> customers = dbCustomers
-                .OrderBy(o => o.FName)
+                .OrderBy(o => o.CustomerName)
                 .Select(c => new SelectListItem
                 {
                     Value = c.CustomerId.ToString(),
-                    Text = c.FName
+                    Text = c.CustomerName
                 }).ToList();
 
             return new SelectList(customers, "Value", "Text");

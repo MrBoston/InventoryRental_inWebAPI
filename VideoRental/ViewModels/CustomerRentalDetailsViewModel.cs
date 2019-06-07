@@ -9,7 +9,7 @@ namespace InventoryRental.ViewModels
     public class CustomerRentalDetailsViewModel
     {
         public Rental Rental { get; set; }
-        public string FName { get; set; }
+        public string CustomerName { get; set; }
         public List<CustomerToolsViewModel> RentedTools { get; set; }
 
     }

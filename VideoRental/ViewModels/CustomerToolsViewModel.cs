@@ -9,6 +9,6 @@ namespace InventoryRental.ViewModels
     {
         public int RentalId { get; set; }
         public int RentalItemId { get; set; }
-        public string Name { get; set; }
+        public string ToolName { get; set; }
     }
 }
